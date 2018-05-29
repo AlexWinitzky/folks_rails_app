@@ -1,0 +1,35 @@
+
+<h1>Check out the Peeps</h1>
+<div>
+<h3>Peep List</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Hair Color</th>
+      <th>Eye Color</th>
+      <th>Gender</th>
+      <th>Alive</th>
+    
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% @peeps.each do |peep| %>
+      <tr>
+        <td><%= peep.name %></td>
+        <td><%= peep.age %></td>
+        <td><%= peep.hair_color %></td>
+        <td><%= peep.eye_color %></td>
+        <td><%= peep.gender %></td>
+        <td><%= peep.alive %></td>
+     
+        <td><%= link_to 'Show', peep_path(peep.id), {class: 'btn green'} %></td>
+        <td><%= link_to 'Edit', edit_peep_path(peep.id), {class: 'btn'} %></td>
+        <td><%= link_to 'Delete', peep_path(peep.id), {method: :delete, class: 'btn red'} %></td>
+      </tr>
+    <% end %>
+  </table>
+  <p><%= link_to 'Add a Peep', new_peep_path, {class: 'btn purple'} %></p>
+</div> 
+
